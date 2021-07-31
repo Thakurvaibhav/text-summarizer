@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  summarizer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${IMAGE:-vaibhavthakur/summarizer}:${TAG:-latest}
+    expose:
+      - 5000
+    ports:
+      - 5000:5000
+    volumes:
+      - ${PWD}/summarize.py:/summarizer/summarize.py
