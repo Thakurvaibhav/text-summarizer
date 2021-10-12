@@ -11,7 +11,29 @@ from gensim.summarization.summarizer import summarize
 # For extracting the keywords
 from gensim.summarization import keywords
 
+# For extracting anchor tags when present
+import requests
+from bs4 import BeautifulSoup
+
 # downloads the article and parses the html, uses lxml parser
+
+def fetchanchors(url):
+    # url = "https://telegram.org/privacy"
+
+    anchor_links = []
+    req = requests.get(url)
+    soup = BeautifulSoup(req.content, 'html.parser')
+    anchors = soup.findAll('a', {'class': 'anchor'})
+
+    if len(anchors) == 0:
+      print("No anchors found")
+      return 0
+
+    else:
+      for link in anchors:
+        anchor_href = link['href']
+        anchor_links.append(url+anchor_href)
+      return anchor_links
 
 def downloadwebpage(url):
     # downloads the whole webpage
