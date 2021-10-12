@@ -28,7 +28,6 @@ def fetchanchors(url):
     if len(anchors) == 0:
       print("No anchors found")
       return 0
-
     else:
       for link in anchors:
         anchor_href = link['href']
