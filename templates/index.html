@@ -10,10 +10,10 @@ Home
     {{ form.hidden_tag() }}
 
     <fieldset class="form-group">
-        <legend class="border-bottom border-success">Summarize using URL</legend>
+        <legend class="border-bottom border-success">Summarize using Text</legend>
         {% if form.link.errors %}
         {{ form.link(class="form-control form-control-lg is-invalid",
-        placeholder="Enter a URL here",
+        placeholder="Enter text here",
         autocomplete="off") }}
         <div class="invalid-feedback">
             {% for error in form.link.errors %}
@@ -24,7 +24,7 @@ Home
         {% else %}
         {{ form.link(id="url",
         class="form-control form-control-lg",
-        placeholder="Enter a URL here",
+        placeholder="Enter text here",
         autocomplete="off") }}
         {% endif %}
 

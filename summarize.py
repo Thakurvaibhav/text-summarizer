@@ -47,7 +47,8 @@ def downloadwebpage(url):
 def sum_it_up(url):
     # url = 'https://en.wikipedia.org/wiki/Elon_Musk'
 
-    content = downloadwebpage(url)
+#    content = downloadwebpage(url)
+    content = url
 
     # remove the reference numbers
     re.sub(r'\[.+\]', '', content)
